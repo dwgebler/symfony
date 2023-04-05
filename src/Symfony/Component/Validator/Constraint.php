@@ -35,6 +35,11 @@ abstract class Constraint
     public const DEFAULT_GROUP = 'Default';
 
     /**
+     * The name of the group representing all constraints of any group.
+     */
+    public const ALL_GROUP = 'All';
+
+    /**
      * Marks a constraint that can be put onto classes.
      */
     public const CLASS_CONSTRAINT = 'class';

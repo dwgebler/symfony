@@ -706,8 +706,9 @@ class RecursiveContextualValidator implements ContextualValidatorInterface
     {
         $context->setGroup($group);
 
-        foreach ($metadata->findConstraints($group) as $constraint) {
-            if ($constraint instanceof Existence) {
+        $constraints = $group === Constraint::ALL_GROUP ? $metadata->getConstraints() : $metadata->findConstraints($group);
+
+        foreach ($constraints as $constraint) {            if ($constraint instanceof Existence) {
                 continue;
             }
 
