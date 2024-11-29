@@ -78,7 +78,7 @@ abstract class Kernel implements KernelInterface, RebootableInterface, Terminabl
     public const MAJOR_VERSION = 7;
     public const MINOR_VERSION = 3;
     public const RELEASE_VERSION = 0;
-    public const EXTRA_VERSION = 'DEV';
+    public const EXTRA_VERSION = '';
 
     public const END_OF_MAINTENANCE = '05/2025';
     public const END_OF_LIFE = '01/2026';
@@ -104,6 +104,7 @@ abstract class Kernel implements KernelInterface, RebootableInterface, Terminabl
     {
         if (true === $this->booted) {
             if (!$this->requestStackSize && $this->resetServices) {
+                Request::resetFormats();
                 if ($this->container->has('services_resetter')) {
                     $this->container->get('services_resetter')->reset();
                 }
