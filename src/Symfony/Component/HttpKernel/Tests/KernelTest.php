@@ -113,6 +113,34 @@ class KernelTest extends TestCase
         $this->assertFileDoesNotExist($legacyContainerDir.'.legacy');
     }
 
+    public function testBootResetsRequestFormatsOnReset()
+    {
+        $request = new Request();
+        $request->setFormat('json', ['application/problem+json']);
+        $modifiedRequestFormat = $request->getFormat('application/json');
+
+        $httpKernelMock = $this->getMockBuilder(HttpKernel::class)
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $httpKernelMock
+            ->expects($this->any())
+            ->method('handle')
+            ->with($request);
+
+        $kernel = $this->getKernel(['getHttpKernel']);
+        $kernel->expects($this->any())
+            ->method('getHttpKernel')
+            ->willReturn($httpKernelMock);
+
+        $kernel->handle($request);
+
+        $kernel->boot();
+        $kernel->handle($request);
+        $this->assertNull($modifiedRequestFormat);
+        $this->assertSame('json', $request->getFormat('application/json'));
+    }
+
     public function testBootInitializesBundlesAndContainer()
     {
         $kernel = $this->getKernel(['initializeBundles']);

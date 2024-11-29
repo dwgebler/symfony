@@ -4,6 +4,7 @@ CHANGELOG
 7.2
 ---
 
+ * Add `Request::resetFormats()` method to reset the list of supported format to MIME type mappings
  * Add optional `$requests` parameter to `RequestStack::__construct()`
  * Add optional `$v4Bytes` and `$v6Bytes` parameters to `IpUtils::anonymize()`
  * Add `PRIVATE_SUBNETS` as a shortcut for private IP address ranges to `Request::setTrustedProxies()`
