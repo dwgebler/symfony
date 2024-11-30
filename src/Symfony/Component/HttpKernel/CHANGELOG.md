@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+7.3
+---
+
+ * Add call to `Request::resetFormats()` in `Kernel::boot()` to reset the request formats at the start of a new main request.
+
 7.2
 ---
 
