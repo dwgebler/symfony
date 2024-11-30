@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+7.3
+---
+
+ * Add `Request::resetFormats()` method to reset the list of supported format to MIME type mappings
+
 7.2
 ---
 

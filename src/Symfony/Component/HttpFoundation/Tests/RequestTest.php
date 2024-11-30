@@ -31,6 +31,16 @@ class RequestTest extends TestCase
         Request::setTrustedHosts([]);
     }
 
+    public function testResetFormats()
+    {
+        $request = new Request();
+        $request->setFormat('json', ['application/problem+json']);
+        $modifiedRequestFormat = $request->getFormat('application/json');
+        $this->assertNull($modifiedRequestFormat);
+        Request::resetFormats();
+        $this->assertEquals('json', $request->getFormat('application/json'));
+    }
+
     public function testInitialize()
     {
         $request = new Request();
