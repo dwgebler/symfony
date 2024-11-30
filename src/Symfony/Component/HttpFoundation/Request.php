@@ -1749,6 +1749,14 @@ class Request
         return $this->isSafeContentPreferred = AcceptHeader::fromString($this->headers->get('Prefer'))->has('safe');
     }
 
+    /**
+     * Reset the mappings of formats to mime types.
+     */
+    public static function resetFormats(): void
+    {
+        static::$formats = null;
+    }
+
     /*
      * The following methods are derived from code of the Zend Framework (1.10dev - 2010-01-24)
      *

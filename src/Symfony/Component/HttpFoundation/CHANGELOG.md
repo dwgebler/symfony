@@ -4,6 +4,7 @@ CHANGELOG
 6.4
 ---
 
+ * Add `Request::resetFormats()` method to reset the list of supported format to MIME type mappings
  * Make `HeaderBag::getDate()`, `Response::getDate()`, `getExpires()` and `getLastModified()` return a `DateTimeImmutable`
  * Support root-level `Generator` in `StreamedJsonResponse`
  * Add `UriSigner` from the HttpKernel component

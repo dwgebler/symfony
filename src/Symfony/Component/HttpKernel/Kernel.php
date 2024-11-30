@@ -110,6 +110,7 @@ abstract class Kernel implements KernelInterface, RebootableInterface, Terminabl
     {
         if (true === $this->booted) {
             if (!$this->requestStackSize && $this->resetServices) {
+                Request::resetFormats();
                 if ($this->container->has('services_resetter')) {
                     $this->container->get('services_resetter')->reset();
                 }

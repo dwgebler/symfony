@@ -4,6 +4,7 @@ CHANGELOG
 6.4
 ---
 
+ * Add call to `Request::resetFormats()` in `Kernel::boot()` to reset the request formats at the start of a new main request.
  * Support backed enums in #[MapQueryParameter]
  * `BundleInterface` no longer extends `ContainerAwareInterface`
  * Add optional `$className` parameter to `ControllerEvent::getAttributes()`
