@@ -1732,7 +1732,7 @@ class Request
     }
 
     /**
-     * Reset the mappings of formats to mime types.
+     * Resets the mappings of formats to mime types.
      */
     public static function resetFormats(): void
     {
