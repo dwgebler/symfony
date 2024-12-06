@@ -1751,6 +1751,7 @@ class Request
 
     /**
      * Resets the mappings of formats to mime types.
+     * @internal
      */
     public static function resetFormats(): void
     {
